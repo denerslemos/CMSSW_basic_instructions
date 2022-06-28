@@ -61,7 +61,7 @@ You can see in more details here http://cms-sw.github.io
 
 In most of the cases the python files are configuration that calls C++ codes. The CMSSW C++ codes are usually divided in (there is another but is never used):
   - EDAnalyzer: read only -> useful to access data and created root TTrees or histograms
-    - see https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
+    - https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
   - EDProducer: it produces an edm file with informations about the event (see next section)
     - https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideEDProducer
   - EDFilter: used to remove events that are no important for the analysis (example: pileup for heavy ions)
@@ -108,7 +108,7 @@ voms-proxy-init -rfc -voms cms
 ```
 The CRAB has it's own python  configuration file that call the default python configuration file you use at cmsRun. In the crab configuration files included, the jobs are submitted using a python command (do not forget voms command)
 ```
-python crabfile.py
+crab submit crabfile.py
 ```
 observation: in the crab configuration file you will include the path of the dataset at CMSDAS and this will overwrite the input dataset file in the local configuration file.
 
@@ -121,6 +121,7 @@ To download the files you can use (be carefull if your files has large size)
 ```
 crab getoutput workArea/requestName/
 ```
+details here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab
 
 ### Useful xrootd commands
 
