@@ -71,11 +71,11 @@ We usually use the EDAnalyzer. One example that uses many EDAnalyzer's is the He
   - https://twiki.cern.ch/twiki/bin/viewauth/CMS/HiForestSetup
   - https://github.com/CmsHI/cmssw
   
-Other important topic is the CMSSW version. It depents when you collect the data, or process the MC. For example, for pPb at 2016 we use CMSSW_8_0_28, while in 2018 Pbpb data we use CMSSW_10_3_1. Because it is direct related with the detector reconstruction and design.
+Other important topic is the CMSSW version. It depents when you collect the data, or process the MC. For example, for pPb at 2016 we use CMSSW_8_0_28, while in 2018 Pbpb data we use CMSSW_10_3_1. Because it is direct related with the detector reconstruction and design. The architecture of linux and c++ version are also important, in that case you can ask me (for example for pPb we use: ```export SCRAM_ARCH=slc7_amd64_gcc530```. 
 
 ## CMS data format
 
-After the trigger selection (L1T+HLT), the online reconstruction is done and the events selected are stored in a format called RAW data, saved at the computational infrastructure used by CMS. The RAW data contain all  the information coming from the detector with a size of ∼1 MB per event. To allow the physicists/users (also called analyzers) to perform analysis, an offline reconstruction is performed over the RAW files by using CMSSW, producing a new data format called RECO (∼ 3 MB/ev), where the physical objects (tracks, jets, ...) are available. The final data format used by the CMS Heavy Ion Group is the analysis object data (AOD), which is a subset of RECO (just removing some objects) and has the information needed for all the analysis with a reduced size (∼ 0.5MB/ev). Starting in 2022 the CMS Heavy Ion group will use miniAOD, which is a reduced (~1/10) size version of AOD  (in pp collisions they also have a so-called nanoAOD). See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats and https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookChapter2 .
+After the trigger selection (L1T+HLT), the online reconstruction is done and the events selected are stored in a format called RAW data, saved at the computational infrastructure used by CMS. The RAW data contain all  the information coming from the detector with a size of ∼1 MB per event. To allow the physicists/users (also called analyzers) to perform analysis, an offline reconstruction is performed over the RAW files by using CMSSW, producing a new data format called RECO (∼ 3MB/ev), where the physical objects (tracks, jets, ...) are available. The final data format used by the CMS Heavy Ion Group is the analysis object data (AOD), which is a subset of RECO (just removing some objects) and has the information needed for all the analysis with a reduced size (∼0.5MB/ev). Starting in 2022 the CMS Heavy Ion group will use miniAOD, which is a reduced (~1/10) size version of AOD  (in pp collisions they also have a so-called nanoAOD). See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats and https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookChapter2 .
 
 All of this formats are EDM (Event Data Model) format. To see the objects inside of the .root files you just need to use:
 ```
@@ -87,6 +87,14 @@ https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmInfoOnDataFile
 The CMS data and MC can be fouded at the CMSDAS website: https://cmsweb.cern.ch/das/
 
 ### Useful CMSSW commands
+Setup CMSSW
+```
+cmsrel CMSSW_X_Y_Z
+cd $CMSSW_BASE/src
+cmsenv
+```
+cmsrel download an specific version of CMSSW (remember of linux architecture) 
+
 To run a code locally you just need to run the python configuration file by using 
 ```
 cmsRun conf_file.py
