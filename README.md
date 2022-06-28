@@ -86,7 +86,7 @@ https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmInfoOnDataFile
 
 The CMS data and MC can be fouded at the CMSDAS website: https://cmsweb.cern.ch/das/
 
-### Useful CMSSW commands
+## CMSSW commands
 Setup CMSSW
 ```
 cmsrel CMSSW_X_Y_Z
@@ -101,7 +101,7 @@ cmsRun conf_file.py
 ```
 example: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
 
-### Useful CRAB3 commands
+## CRAB3 commands
 For CRAB, we will access files that are not locally, for that you need a certificate:
 ```
 voms-proxy-init -rfc -voms cms
@@ -123,7 +123,7 @@ crab getoutput workArea/requestName/
 ```
 details here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab
 
-### Useful xrootd commands
+## xrootd commands
 
 Files are copied to your local machine using xrdcp, example
 ```
