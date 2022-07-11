@@ -18,6 +18,8 @@ Other important step is your grid certificate. To install at LXPLUS you must dow
 voms-proxy-init -rfc -voms cms
 ```
 
+Note that the AFS space in LXPLUS is limited. You can request 10 GB here: https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx . In addition you can create an eos space at https://cernbox.cern.ch (/eos/user/first_letter_username/username) with 1 TB.
+
 ### Advices
 Add the following lines in your ~/.bashrc
 
@@ -116,6 +118,7 @@ To check status of your jobs, you can just use ```crab status -d workArea/reques
 ```
 crab status -d workArea/requestName/
 ```
+In addition, the status of the jobs can be checked in the GRAFANA interface (https://monit-grafana.cern.ch). The account is automatic created (taks 10 min) once you log in with your CERN account. 
 
 To download the files you can use (be carefull if your files has large size)
 ```
