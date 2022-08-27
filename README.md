@@ -56,6 +56,19 @@ the other commands you can use to change between machines based on the usage (th
 
 Once this steps are followed we can now move to understand a bit CMSSW.
 
+
+## xrootd commands
+
+Files are copied to your local machine using xrdcp, example
+```
+xrdcp -d 1 -f root://cmsxrootd.fnal.gov//store/user/ddesouza/PAEGJet1/HiForest_pPb_8TeV_p-going_JetSamples_out/211211_161432/0000/HiForestAOD_1.root . &> out.txt &
+```
+
+To access files and create a list of files you can use xrdfs, example:
+```
+xrdfs root://cmsxrootd.fnal.gov ls /store/user/ddesouza/PAEGJet1/HiForest_pPb_8TeV_p-going_JetSamples_out/211211_161432/0000/ &> listofforestfiles.txt &
+```
+
 ## CMSSW related stuff
 
 CMSSW contain many codes writen in python and C++ (it is also possible to use python only). 
@@ -126,14 +139,3 @@ crab getoutput workArea/requestName/
 ```
 details here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab
 
-## xrootd commands
-
-Files are copied to your local machine using xrdcp, example
-```
-xrdcp -d 1 -f root://cmsxrootd.fnal.gov//store/user/ddesouza/PAEGJet1/HiForest_pPb_8TeV_p-going_JetSamples_out/211211_161432/0000/HiForestAOD_1.root . &> out.txt &
-```
-
-To access files and create a list of files you can use xrdfs, example:
-```
-xrdfs root://cmsxrootd.fnal.gov ls /store/user/ddesouza/PAEGJet1/HiForest_pPb_8TeV_p-going_JetSamples_out/211211_161432/0000/ &> listofforestfiles.txt &
-```
