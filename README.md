@@ -69,6 +69,8 @@ To access files and create a list of files you can use xrdfs, example:
 xrdfs root://cmsxrootd.fnal.gov ls /store/user//ahingraj/Dijet_pThat-15_pPb-Bst_8p16_Pythia8/HeavyIon_Forest_pPb_8p16TeV_pgoing_PYTHIA8_Unembedded_pthat15_out/220808_162221/0000/ &> listofforestfiles.txt &
 ```
 
+Look, the ```&``` symbol will allow your code to run on background (not showing in the screen, to check the if the job is running use the command ```jobs```.
+
 ## CMSSW related stuff
 
 CMSSW contain many codes writen in python and C++ (it is also possible to use python only). 
