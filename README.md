@@ -1,6 +1,6 @@
 # CMSSW Basic Instructions
 
-This repository was created for students that are starting to learning CMS SoftWare (CMSSW) tools. 
+This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
 
 ## Setup your LXPLUS area
 
@@ -58,13 +58,16 @@ Once this steps are followed we can now move to understand a bit CMSSW.
 
 
 ## xrootd commands
-
+To access any files via XROOTD, you may use your certificate:
+```
+voms-proxy-init -rfc -voms cms
+```
 Files are copied to your local machine using xrdcp, example
 ```
 xrdcp -d 1 -f root://cmsxrootd.fnal.gov//store/user/ahingraj/Dijet_pThat-15_pPb-Bst_8p16_Pythia8/HeavyIon_Forest_pPb_8p16TeV_pgoing_PYTHIA8_Unembedded_pthat15_out/220808_162221/0000/HiForestAOD_1.root . &> out.txt &
 ```
 
-To access files and create a list of files you can use xrdfs, example:
+To access or find files and create a list of files you can use xrdfs, example:
 ```
 xrdfs root://cmsxrootd.fnal.gov ls /store/user/ahingraj/Dijet_pThat-15_pPb-Bst_8p16_Pythia8/HeavyIon_Forest_pPb_8p16TeV_pgoing_PYTHIA8_Unembedded_pthat15_out/220808_162221/0000/ &> listofforestfiles.txt &
 ```
