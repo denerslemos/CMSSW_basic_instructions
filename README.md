@@ -56,6 +56,33 @@ the other commands you can use to change between machines based on the usage (th
 
 Once this steps are followed we can now move to understand a bit CMSSW.
 
+## rucio commands
+If a dataset that you want to use is in TAPE only, you can use rucio to save it temporarily in your T2*. 
+In that case you first need to call rucio libraries and certificate (you can also add the first two lines in the .bashrc)
+```
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+source /cvmfs/cms.cern.ch/rucio/setup-py3.sh
+voms-proxy-init -rfc -voms cms
+```
+To add a dataset in the queue for TAPE to DISK tranfer you must use:
+```
+rucio add-rule --ask-approval cms:CSMSDAS_PATH 1 T2_MY_SITE --lifetime 2592000 (for 1 month for example)
+```
+where CSMSDAS_PATH is the path dataset from DAS, T2_MY_SITE is the T2 site that you can access and lifetime is the time that this sample will be available.
+To check the status of the request, do:
+```
+rucio list-rules --account username
+```
+it will return something like:
+```
+ID          ACCOUNT    SCOPE:NAME       STATE[OK/REPL/STUCK]    RSE_EXPRESSION     COPIES    EXPIRES (UTC)        CREATED (UTC)
+RULE_ID     usename   cms:/CMSDAS_PATH  REPLICATING[63/30/0]     T2_MY_SITE          1     YYYY-MM-DD HH:MM:SS  YYYY-MM-DD HH:MM:SS
+```
+if you use the example above (1 month) you will see the EXPIRES is 1 month ahead of CREATED.
+To delete a rule, you can use:
+```
+rucio delete-rule RULE_ID
+```
 
 ## xrootd commands
 To access any files via XROOTD, you may use your certificate:
