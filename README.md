@@ -1,8 +1,15 @@
 # CMS Survival Guide
 
-This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
+![Alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fcms-docdb.cern.ch%2Fcgi-bin%2FPublicDocDB%2FShowDocument%3Fdocid%3D3045&psig=AOvVaw1QqaulphmwP_vpjktHU2F9&ust=1675880323089000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJD03eyChP0CFQAAAAAdAAAAABAE)
 
-## Setup your LXPLUS area
+This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
+1. [Setup your LXPLUS area](#setup)
+    1. [Some advices](#advices)
+2. [Introduction to CMSSW and tools](#introduction)
+    1. [Sub paragraph](#subparagraph1)
+4. [Another paragraph](#paragraph2)
+
+## Setup your LXPLUS area <a name="setup"></a>
 
 Once you have a CERN account you can access the lxplus machines using SSH as:
 
@@ -25,9 +32,9 @@ voms-proxy-init -rfc -voms cms
 
 Note that the AFS space in LXPLUS is limited. You can request up to 10 GB here: https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx . In addition you can create an eos space at https://cernbox.cern.ch (/eos/user/first_letter_username/username) with 1 TB.
 
-### Some advices (optional, you can also type that everytime you log in)
+### Some advices <a name="advices"></a>
 
-Add the following lines in your ~/.bashrc
+Add the following lines in your ~/.bashrc (optional, you can also type that everytime you log in) 
 
 CRAB setup (CRAB is a useful tool to spread jobs around the CMS grid architecture)
 ```
@@ -67,7 +74,7 @@ the other commands you can use to change between clusters based on the usage (th
 
 Once this steps are followed we can now move to understand a bit CMSSW.
 
-## CMSSW related stuff
+## Introduction to CMSSW and tools <a name="introduction"></a>
 
 CMSSW contain many codes writen in python and C++ (it is also possible to use python only). 
 You can see in more details here http://cms-sw.github.io
