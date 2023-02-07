@@ -1,4 +1,4 @@
-<img src="https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png"  width="10%" height="10%">
+<img src="https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png"  width="20%" height="20%">
 
 # CMS Survival Guide 
 
@@ -7,9 +7,13 @@ This repository was created for people starting to learning CMS SoftWare (CMSSW)
     1. [Some advices](#advices)
 2. [Introduction to CMSSW and tools](#introduction)
     1. [CMS Data Format](#dataformat)
-    2. [CMS Data Format](#dataformat)
-    3. 
-4. [Another paragraph](#paragraph2)
+    2. [CMSSW](#cmssw)
+    3. [CRAB3](#crab3)
+    4. [XROOTD](#xrootd)
+    5. [rucio](#rucio)
+3. [CMS Talk and CMS Pub Talk](#cmstalk)
+4. [TDR](#tdr)
+    1. [Diff](#diff)
 
 ## Setup your LXPLUS area <a name="setup"></a>
 
