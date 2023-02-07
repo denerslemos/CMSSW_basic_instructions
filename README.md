@@ -187,3 +187,96 @@ Look, the ```&``` symbol will allow your code to run on background (not showing 
 ## CMS Talk and CMS Pub Talk
 
 Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the important intructions that can be found here: 
+
+## TDR
+
+In the CMS we use the TDR (see https://twiki.cern.ch/twiki/bin/view/CMS/Internal/TdrProcessing) to write the documentation of analysis or detector performance and so on. Here I write some intructions that I think it can help (assuming you are working at LXPLUS, but should also work at Linux or Mac OS).
+
+Before go to command line instructions, you can edit you files directly in the gitlab in https://gitlab.cern.ch/tdr/papers/HIN-XX-YYY but you will not be able to compile. There is also a possibility to connect with Overleaf that looks interesting, but I have never tried. I will let the link for that here:
+- https://twiki.cern.ch/twiki/bin/view/CMS/Internal/TdrOverleaf
+
+Let us move to the terminal commands. For LXPLUS or CENTOS Linux users (not valid for all Linux or MAC, in that case, skip this step), you can use the recent version of git using
+```
+scl enable rh-git29 bash # this allows you to access a recent version of git. It will place you in a bash shell.
+```
+
+Next, download the folder using (assuming that you already setup the gitlab key as mentioned in the beginning of this intructions, if not go back to. ```Setup your LXPLUS area``` and do it)
+```
+git clone --recursive ssh://git@gitlab.cern.ch:7999/tdr/papers/HIN-XX-YYY.git
+```
+
+this example is for paper, check the one you have permission to write. The ```--recursive``` is important to download all the TDR tools. Than
+
+```
+ls
+cd HIN-XX-YYY
+```
+inside of the folder you will see a file ```HIN-XX-YYY.tex``` that is the main file. In case of analysis note we usually add source files because it is a big document. However in the case of papers, everything must be in this ```HIN-XX-YYY.tex``` and figures in the same ```HIN-XX-YYY``` folder. This is mandatory in CMS and important to make diff versions (explained later).
+
+Once you are on the folder you can compile and make the pdf using:
+```
+eval `utils/tdr runtime` # add -sh for bash; -csh for csh; -fish for fish. Default is csh (for now).
+mkdir -p output
+./utils/tdr --temp_dir-"./output" --style=[paper|pas|an|note] b  # the local document with the name of the directory is the default build target
+```
+the pdf and log files will be save at HIN-XX-YYY/output folder.
+
+Once you start to edit your files (.tex, sources, figures, ...) you can upload by:
+```
+git pull                            # always do a git pull before push to not overlap work from another people
+git status                          # shows all changes to be done
+git diff                            # shows all differences between 2 versions: before updates and after updates
+git add .                           # add all files modified in current directory. "." means all, but you can select individual changes from status
+git commit -m "add my new changes"  # to stage your changes
+git push                            # to send them back to the repo
+```
+once done you will update the gitlab folder. All this command should work in LXPLUS as well as in MAC or LINUX systems (never tried in Windows).
+
+## Diff
+As mentioned before, to make a diff (see twiki: https://twiki.cern.ch/twiki/bin/view/Main/TdrDiffInstr#For_GITLAB), all the files must be in the same folder (figures, .tex, .bib) and all the text in the main .tex. If this conditions are satisfied, you can make a diff by downloading the most recent version of the text (only possible at LXPLUS):
+```
+scl enable rh-git29 bash 
+git clone --recursive ssh://git@gitlab.cern.ch:7999/tdr/papers/HIN-XX-YYY.git
+cd HIN-XX-YYY
+mkdir -p output
+```
+than follow this steps:
+
+- edit: utils/general/cms-tdr.cls under the "\usepackage{ptdr-definitions}", put in the following two lines: 
+```
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}
+```
+- execute the command:
+```
+PATH=/cvmfs/cms.cern.ch/external/tex/texlive/2017/bin/x86_64-linux/:$PATH
+```
+
+- Find out the version you want to use as reference via ```git log HIN-XX-YYY.tex```
+  - for example you want to compare the current version with version b174241c04ff018b67e600b4d3acde00816c3c0b
+    - b174241c04ff018b67e600b4d3acde00816c3c0b is the commit number 
+    - can also be found at gitlab (https://gitlab.cern.ch/tdr/papers/HIN-XX-YYY/-/commits/master/)
+    
+- Run: ```latexdiff-vc -r b174241c04ff018b67e600b4d3acde00816c3c0b --append-context2cmd="abstract"``` HIN-XX-YYY.tex
+  - this will create a texft file: HIN-XX-YYY-diffb174241c04ff018b67e600b4d3acde00816c3c0b.tex (HIN-XX-XXX.tex-referenceVersion.tex)
+  
+- manually add the following line into this newly created tex file:
+```
+\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}} %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+```
+- Compile again, to create the colorful diff: ```./utils/tdr --temp_dir-"./output" b HIN-XX-YYY-diffb174241c04ff018b67e600b4d3acde00816c3c0b.tex```
+  - The diff file will be created, but look carefully in the spit-out on the screed to see the location of the pdf file. 
