@@ -248,7 +248,7 @@ git push                            # to send them back to the repo
 once done you will update the gitlab folder. All this command should work in LXPLUS as well as in MAC or LINUX systems (never tried in Windows).
 
 ### Diff <a name="diff"></a>
-As mentioned before, to make a diff (see twiki: https://twiki.cern.ch/twiki/bin/view/Main/TdrDiffInstr#For_GITLAB), all the files must be in the same folder (figures, .tex, .bib) and all the text in the main .tex. If this conditions are satisfied, you can make a diff by downloading the most recent version of the text (only possible at LXPLUS):
+As mentioned before, to make a diff (see twiki: https://twiki.cern.ch/twiki/bin/view/Main/TdrDiffInstr#For_GITLAB), all the files must be in the same folder (figures, .tex, .bib) and all the text in the main .tex. If this conditions are satisfied, you can make a diff by downloading the most recent version of the text (only tested at LXPLUS):
 ```
 scl enable rh-git29 bash 
 git clone --recursive ssh://git@gitlab.cern.ch:7999/tdr/papers/HIN-XX-YYY.git
