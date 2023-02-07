@@ -184,3 +184,6 @@ xrdfs root://cmsxrootd.fnal.gov ls /store/user/ahingraj/Dijet_pThat-15_pPb-Bst_8
 
 Look, the ```&``` symbol will allow your code to run on background (not showing in the screen, to check the if the job is running use the command ```jobs```.
 
+## CMS Talk and CMS Pub Talk
+
+Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the important intructions that can be found here: 
