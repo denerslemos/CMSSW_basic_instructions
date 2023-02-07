@@ -1,6 +1,6 @@
 # CMS Survival Guide
 
-![Alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fcms-docdb.cern.ch%2Fcgi-bin%2FPublicDocDB%2FShowDocument%3Fdocid%3D3045&psig=AOvVaw1QqaulphmwP_vpjktHU2F9&ust=1675880323089000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJD03eyChP0CFQAAAAAdAAAAABAE)
+![Alt text](https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png)
 
 This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
 1. [Setup your LXPLUS area](#setup)
