@@ -9,8 +9,9 @@ This repository was created for people starting to learning CMS SoftWare (CMSSW)
     1. [CMS Data Format](#dataformat)
     2. [CMSSW](#cmssw)
     3. [CRAB3](#crab3)
-    4. [XROOTD](#xrootd)
-    5. [rucio](#rucio)
+    4. [rucio](#rucio)
+    5. [XROOTD](#xrootd)
+    6. [HIN Forest Framework](#forest)
 3. [CMS Talk and CMS Pub Talk](#cmstalk)
 4. [TDR](#tdr)
     1. [Diff](#diff)
@@ -196,6 +197,8 @@ xrdfs root://cmsxrootd.fnal.gov ls /store/user/ahingraj/Dijet_pThat-15_pPb-Bst_8
 ```
 
 Look, the ```&``` symbol will allow your code to run on background (not showing in the screen, to check the if the job is running use the command ```jobs```.
+
+### HIN Forest Framework  <a name="forest"></a>
 
 ## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
