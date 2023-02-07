@@ -118,7 +118,7 @@ example: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkMo
 
 See information how to write your own code in the https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
 
-## CRAB3
+### CRAB3
 For CRAB, we will access files that are not locally, for that you need a certificate:
 ```
 voms-proxy-init -rfc -voms cms
@@ -139,7 +139,7 @@ crab getoutput workArea/requestName/
 ```
 details here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab
 
-## rucio
+### rucio
 If a dataset that you want to use is in TAPE only (which means it was deleted from Tier's HD's), you can use rucio to save it temporarily in your T2*. 
 In that case you first need to call rucio libraries and certificate (you can also add the first two lines in the .bashrc)
 ```
@@ -167,8 +167,8 @@ To delete a rule, you can use:
 rucio delete-rule RULE_ID
 ```
 
-## xrootd
-To access any files via XROOTD, you may use your certificate:
+### xrootd
+To access any files in different Tier's we ca use XROOTD, in that case you may use your certificate:
 ```
 voms-proxy-init -rfc -voms cms
 ```
