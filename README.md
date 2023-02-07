@@ -202,7 +202,7 @@ Look, the ```&``` symbol will allow your code to run on background (not showing 
 
 ## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
-Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the important intructions that can be found here: 
+Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the some intructions that can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/cmstalk.pdf 
 
 ## TDR <a name="tdr"></a>
 
