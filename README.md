@@ -1,12 +1,14 @@
-# CMS Survival Guide
+<img src="https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png"  width="10%" height="10%">
 
-![Alt text](https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png)
+# CMS Survival Guide 
 
 This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
 1. [Setup your LXPLUS area](#setup)
     1. [Some advices](#advices)
 2. [Introduction to CMSSW and tools](#introduction)
-    1. [Sub paragraph](#subparagraph1)
+    1. [CMS Data Format](#dataformat)
+    2. [CMS Data Format](#dataformat)
+    3. 
 4. [Another paragraph](#paragraph2)
 
 ## Setup your LXPLUS area <a name="setup"></a>
@@ -93,7 +95,7 @@ We usually use the EDAnalyzer. One example that uses many EDAnalyzer's is the He
   
 Other important topic is the CMSSW version. It depents when you collect the data, or process the MC. For example, for pPb at 2016 we use CMSSW_8_0_28, while in 2018 PbPb data we use CMSSW_10_3_1. Because it is direct related with the detector reconstruction and design. The architecture of linux and C++ version are also important, in that case you can ask me (for example for pPb we use: ```export SCRAM_ARCH=slc7_amd64_gcc530```) or check in the Forest twiki above. In most of the cases we can do the analysis using the Forest, see this Forest introduction github page and this twiki. 
 
-### CMS data format
+### CMS data format <a name="dataformat"></a>
 
 After the trigger selection (L1T+HLT), the online reconstruction is done and the events selected are stored in a format called RAW data, saved at the computational infrastructure used by CMS. The RAW data contain all the information coming from the detector with a size of ∼1 MB per event. To allow the physicists/users (also called analyzers) to perform analysis, an offline reconstruction is performed over the RAW files by using CMSSW, producing a new data format called RECO (∼ 3MB/ev), where the physical objects (tracks, jets, ...) are available. The final data format used by the CMS Heavy Ion Group is the analysis object data (AOD), which is a subset of RECO (just removing some objects) and has the information needed for all the analysis with a reduced size (∼0.5MB/ev). Starting in 2022 the CMS Heavy Ion group will use miniAOD, which is a reduced (~1/10) size version of AOD  (in pp collisions they also have a so-called nanoAOD). See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats and https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookChapter2 .
 
@@ -108,7 +110,7 @@ The CMS data and MC can be fouded at the CMSDAS website: https://cmsweb.cern.ch/
 
 To analyze this data we use CMSSW as shown in the next topic.
 
-### CMSSW
+### CMSSW  <a name="cmssw"></a>
 Setup CMSSW
 ```
 cmsrel CMSSW_X_Y_Z
@@ -125,7 +127,7 @@ example: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkMo
 
 See information how to write your own code in the https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
 
-### CRAB3
+### CRAB3  <a name="crab3"></a>
 For CRAB, we will access files that are not locally, for that you need a certificate:
 ```
 voms-proxy-init -rfc -voms cms
@@ -146,7 +148,7 @@ crab getoutput workArea/requestName/
 ```
 details here: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab
 
-### rucio
+### rucio  <a name="rucio"></a>
 If a dataset that you want to use is in TAPE only (which means it was deleted from Tier's HD's), you can use rucio to save it temporarily in your T2*. 
 In that case you first need to call rucio libraries and certificate (you can also add the first two lines in the .bashrc)
 ```
@@ -174,7 +176,7 @@ To delete a rule, you can use:
 rucio delete-rule RULE_ID
 ```
 
-### xrootd
+### XROOTD  <a name="xrootd"></a>
 To access any files in different Tier's we ca use XROOTD, in that case you may use your certificate:
 ```
 voms-proxy-init -rfc -voms cms
@@ -191,11 +193,11 @@ xrdfs root://cmsxrootd.fnal.gov ls /store/user/ahingraj/Dijet_pThat-15_pPb-Bst_8
 
 Look, the ```&``` symbol will allow your code to run on background (not showing in the screen, to check the if the job is running use the command ```jobs```.
 
-## CMS Talk and CMS Pub Talk
+## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
 Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the important intructions that can be found here: 
 
-## TDR
+## TDR <a name="tdr"></a>
 
 In the CMS we use the TDR (see https://twiki.cern.ch/twiki/bin/view/CMS/Internal/TdrProcessing) to write the documentation of analysis or detector performance and so on. Here I write some intructions that I think it can help (assuming you are working at LXPLUS, but should also work at Linux or Mac OS).
 
@@ -238,7 +240,7 @@ git push                            # to send them back to the repo
 ```
 once done you will update the gitlab folder. All this command should work in LXPLUS as well as in MAC or LINUX systems (never tried in Windows).
 
-## Diff
+### Diff <a name="diff"></a>
 As mentioned before, to make a diff (see twiki: https://twiki.cern.ch/twiki/bin/view/Main/TdrDiffInstr#For_GITLAB), all the files must be in the same folder (figures, .tex, .bib) and all the text in the main .tex. If this conditions are satisfied, you can make a diff by downloading the most recent version of the text (only possible at LXPLUS):
 ```
 scl enable rh-git29 bash 
