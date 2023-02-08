@@ -200,6 +200,8 @@ Look, the ```&``` symbol will allow your code to run on background (not showing 
 
 ### HIN Forest Framework  <a name="forest"></a>
 
+As mentioned, the HIN Forest framework is composed by a bunch of EDAnalyzer's that runs different algorithms in order to produce one output file with different objects like jets, electrons and photons, tracks, muons, and so on. This has been used along the years in different analysis for all the colliding systems at CMS. The setup for HI Forest can be found in this twiki: https://twiki.cern.ch/twiki/bin/viewauth/CMS/HiForestSetup and the code in this github: https://github.com/CmsHI/cmssw . A tutorial for HI Forest (by Jussi) can be founded here: https://twiki.cern.ch/twiki/bin/view/CMS/HiForestTutorial . There you can find more information about the Forest code and details about each algorithm used for 2018 PbPb data. The structure of the forest code is similar for pp, pPb, XeXe and PbPb. In addition to this nice twiki, I have added some slides for 2016 pPb data (processing and output structure). See slides here:  
+
 ## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
 Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the some intructions that can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/cmstalk.pdf 
