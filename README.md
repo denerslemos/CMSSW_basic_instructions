@@ -204,7 +204,7 @@ As mentioned, the HIN Forest framework is composed by a bunch of EDAnalyzer's th
 
 ## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
-Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the some intructions that can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/cmstalk.pdf 
+Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the some intructions that can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/cmstalk.pdf . Also, CMS uses Twiki's (https://twiki.org/cgi-bin/view/TWiki/TWikiUsersGuide) and Indico (https://indico.nucleares.unam.mx/ihelp/pdf/IndicoUserGuide.pdf) pages for meetings and presentations. In addition, Mattermost is a chat used for different groups in CMS to quick contact. To use it you just need to go to http://mattermost.web.cern.ch and log in with your CERN account. For additional information of invitation links, text/email me.
 
 ## TDR <a name="tdr"></a>
 
