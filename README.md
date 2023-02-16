@@ -13,7 +13,8 @@ This repository was created for people starting to learning CMS SoftWare (CMSSW)
     5. [XROOTD](#xrootd)
     6. [HIN Forest Framework](#forest)
 3. [CMS Talk and CMS Pub Talk](#cmstalk)
-4. [TDR](#tdr)
+4. [CADI Instructions](#cadi)
+5. [TDR](#tdr)
     1. [Diff](#diff)
 
 ## Setup your LXPLUS area <a name="setup"></a>
@@ -205,6 +206,18 @@ As mentioned, the HIN Forest framework is composed by a bunch of EDAnalyzer's th
 ## CMS Talk and CMS Pub Talk <a name="cmstalk"></a>
 
 Recently the CMS collaboration started to comunicate using CMS Talk (https://cms-talk.web.cern.ch) (for general: detectors, meetings, jobs, ...) and  CMS Pub Talk (https://cms-pub-talk.web.cern.ch/) (for analysis related updates) which is similar to a forum where people can interact. I made a set of slides with the some intructions that can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/cmstalk.pdf . Also, CMS uses Twiki's (https://twiki.org/cgi-bin/view/TWiki/TWikiUsersGuide) and Indico (https://indico.nucleares.unam.mx/ihelp/pdf/IndicoUserGuide.pdf) pages for meetings and presentations. In addition, Mattermost is a chat used for different groups in CMS to quick contact. To use it you just need to go to http://mattermost.web.cern.ch and log in with your CERN account. For additional information of invitation links, text/email me.
+
+## CADI Intructions <a name="cadi"></a>
+
+To publish a papers in CMS you will need to use the CMS Analysis Database Interface (CADI): https://cms.cern.ch/iCMS/analysisadmin/cadilines (called CADI lines). There you can find information for any analysis. Usually to open a CADI for you analysis you need to have a Analysis Note (AN) in a good shape (at least results and systematics) and approval for you PInG convener.
+
+To create an AN, go to https://cms.cern.ch/iCMS/jsp/iCMS.jsp?mode=single&block=publications website and than select ```New note``` (or new thesis if you are using for thesis. NOTE that you will use My Pending are to update your AN (in that case only pdf file is needed). Once selected you will see a Publish note page, fill it with important information (usually Document Type is Analysis Note, our work group is ``` HIN - Heavy Ion Physics ``` and Document Category/Keyword is ``` Physics ```) and you can upload a dummy pdf file. Once done you need to ask someone to create a gitlab repository for this AN to edit the pdf/latex (see intructions here: https://twiki.cern.ch/twiki/bin/view/CMS/Internal/TdrProcessing). 
+
+Once you AN is in a good shape you can ask the HIN conveners for CADI line and once you have HIN-XX-YYY you will create a gitlab folder and this must be done in the same way as the AN. The CADI lines will include all the information from the analysis including AN link, twiki page, CMS Pub Talk, pre-approval and approval talks and so on. However, in the CADI you will not upload the pdf, for that you must update the Physics Analysis Summary (PAS) or paper via CADI lines tool. In that case, you will ```switch to EDIT mode``` and go to PAS/PAPER actions and pull directly from gitlab (remember to have last version of .tex there with no compiling errors. The instructions to edit the .tex are in the section bellow.
+
+In addition we have to add our results at HEPData before publication. There are some instructions here: 
+https://agenda.infn.it/event/25088/contributions/127174/attachments/77898/100501/smueller_PrecisionSM2020_2.pdf
+https://alice-publications.web.cern.ch/sites/default/files/documents/HOWTO_new_HEPData_authors_0.pdf
 
 ## TDR <a name="tdr"></a>
 
