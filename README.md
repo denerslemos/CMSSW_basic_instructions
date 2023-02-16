@@ -219,6 +219,8 @@ In addition we have to add our results at HEPData before publication. There are 
 https://agenda.infn.it/event/25088/contributions/127174/attachments/77898/100501/smueller_PrecisionSM2020_2.pdf
 https://alice-publications.web.cern.ch/sites/default/files/documents/HOWTO_new_HEPData_authors_0.pdf
 
+An example for HIN-20-003 (https://www.hepdata.net/record/ins2165920) can be found here: https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/script_HEPDATA_HIN20003.py
+
 ## TDR <a name="tdr"></a>
 
 In the CMS we use the TDR (see https://twiki.cern.ch/twiki/bin/view/CMS/Internal/TdrProcessing) to write the documentation of analysis or detector performance and so on. Here I write some intructions that I think it can help (assuming you are working at LXPLUS, but should also work at Linux or Mac OS).
