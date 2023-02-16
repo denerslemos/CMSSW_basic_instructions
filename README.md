@@ -215,7 +215,7 @@ To create an AN, go to https://cms.cern.ch/iCMS/jsp/iCMS.jsp?mode=single&block=p
 
 Once you AN is in a good shape you can ask the HIN conveners for CADI line and once you have HIN-XX-YYY you will create a gitlab folder and this must be done in the same way as the AN. The CADI lines will include all the information from the analysis including AN link, twiki page, CMS Pub Talk, pre-approval and approval talks and so on. However, in the CADI you will not upload the pdf, for that you must update the Physics Analysis Summary (PAS) or paper via CADI lines tool. In that case, you will ```switch to EDIT mode``` and go to PAS/PAPER actions and pull directly from gitlab (remember to have last version of .tex there with no compiling errors. The instructions to edit the .tex are in the section bellow.
 
-In addition we have to add our results at HEPData before publication. There are some instructions here: 
+In addition we have to add our results at HEPData (https://www.hepdata.net) before publication. There are some instructions here: 
 https://agenda.infn.it/event/25088/contributions/127174/attachments/77898/100501/smueller_PrecisionSM2020_2.pdf
 https://alice-publications.web.cern.ch/sites/default/files/documents/HOWTO_new_HEPData_authors_0.pdf
 
