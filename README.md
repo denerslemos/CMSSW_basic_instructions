@@ -2,7 +2,7 @@
 
 # CMS Survival Guide 
 
-This repository was created for people starting to learning CMS SoftWare (CMSSW) tools. 
+This repository was created for people starting to learn about CMS tools. 
 1. [Setup your LXPLUS area](#setup)
     1. [Some advices](#advices)
 2. [Introduction to CMSSW and tools](#introduction)
