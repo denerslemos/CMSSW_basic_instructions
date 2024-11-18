@@ -136,7 +136,7 @@ See information how to write your own code in the https://twiki.cern.ch/twiki/bi
 
 ### Working with containers  <a name="container"></a>
 
-Note that older versions of CMSSW uses old Linux systems (e.g. pPb 2016 data uses CMSSW_8_0_X with is SCL6 based). To use those systems, you have to use a container. To do it you have to type the version of Linux you want in the terminal BEFORE ```cmsrel``` command. 
+Note that older versions of CMSSW uses old Linux systems (e.g. pPb 2016 data uses CMSSW_8_0_X with is CentOs6 based). To use those systems, you have to use a container. To do it you have to type the version of Linux you want in the terminal BEFORE ```cmsrel``` command. 
 To enter in a container you just type:
 ```
 cmssw-elX
