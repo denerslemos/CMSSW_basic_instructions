@@ -8,10 +8,11 @@ This repository was created for people starting to learn about CMS tools.
 2. [Introduction to CMSSW and tools](#introduction)
     1. [CMS Data Format](#dataformat)
     2. [CMSSW](#cmssw)
-    3. [CRAB3](#crab3)
-    4. [rucio](#rucio)
-    5. [XROOTD](#xrootd)
-    6. [HIN Forest Framework](#forest)
+    3. [Working with Containers](#container)
+    4. [CRAB3](#crab3)
+    5. [rucio](#rucio)
+    6. [XROOTD](#xrootd)
+    7. [HIN Forest Framework](#forest)
 3. [CMS Talk and CMS Pub Talk](#cmstalk)
 4. [CADI Instructions](#cadi)
 5. [TDR](#tdr)
@@ -132,6 +133,15 @@ cmsRun conf_file.py
 example: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
 
 See information how to write your own code in the https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule
+
+#### Working with containers  <a name="container"></a>
+
+Note that older versions of CMSSW uses old Linux systems (e.g. pPb 2016 data uses CMSSW_8_0_X with is SCL6 based). To use those systems, you have to use a container. To do it you have to type the version of Linux you want in the terminal BEFORE ```cmsrel``` command. 
+To enter in a container you just type:
+```
+cmssw-elX
+```
+where X can be 5, 6, 7, 8 or 9. Which corresponds to SLC5, CentOs6, CentOs7, AlmaLinux8 or AlmaLinux9. LXPLUS uses AlmaLinux9 by default. More information and details can be found at:  https://cms-sw.github.io/singularity.html
 
 ### CRAB3  <a name="crab3"></a>
 For CRAB, we will access files that are not locally, for that you need a certificate:
@@ -265,50 +275,12 @@ git push                            # to send them back to the repo
 once done you will update the gitlab folder. All this command should work in LXPLUS as well as in MAC or LINUX systems (never tried in Windows).
 
 ### Diff <a name="diff"></a>
-As mentioned before, to make a diff (see twiki: https://twiki.cern.ch/twiki/bin/view/Main/TdrDiffInstr#For_GITLAB), all the files must be in the same folder (figures, .tex, .bib) and all the text in the main .tex. If this conditions are satisfied, you can make a diff by downloading the most recent version of the text (only tested at LXPLUS):
+To make a diff you must use the following website: 
 ```
-scl enable rh-git29 bash 
-git clone --recursive ssh://git@gitlab.cern.ch:7999/tdr/papers/HIN-XX-YYY.git
-cd HIN-XX-YYY
-mkdir -p output
+https://cms-tdr-diff.web.cern.ch/statusboard
 ```
-than follow this steps:
-
-- edit: ```utils/general/cms-tdr.cls``` under the ```"\usepackage{ptdr-definitions}"```, put in the following two lines: 
+You must login in your CERN account and you can do the diff for paper and notes using the Gitlab commits. To check the status, go to :
 ```
-\RequirePackage[normalem]{ulem} %DIF PREAMBLE
-\RequirePackage{color}
+https://cms-tdr-diff.web.cern.ch/statusboard
 ```
-- execute the command:
-```
-PATH=/cvmfs/cms.cern.ch/external/tex/texlive/2017/bin/x86_64-linux/:$PATH
-```
-
-- Find out the version you want to use as reference via ```git log HIN-XX-YYY.tex```
-  - for example you want to compare the current version with version b174241c04ff018b67e600b4d3acde00816c3c0b
-    - b174241c04ff018b67e600b4d3acde00816c3c0b is the commit number 
-    - can also be found at gitlab (https://gitlab.cern.ch/tdr/papers/HIN-XX-YYY/-/commits/master/)
-    
-- Run: ```latexdiff-vc -r b174241c04ff018b67e600b4d3acde00816c3c0b --append-context2cmd="abstract" HIN-XX-YYY.tex```
-  - this will create a texft file: HIN-XX-YYY-diffb174241c04ff018b67e600b4d3acde00816c3c0b.tex (HIN-XX-XXX.tex-referenceVersion.tex)
-  
-- manually add the following line into this newly created tex file (HIN-XX-YYY-diffb174241c04ff018b67e600b4d3acde00816c3c0b.tex):
-```
-\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
-\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
-\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}} %DIF PREAMBLE
-%DIF SAFE PREAMBLE %DIF PREAMBLE
-\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
-\providecommand{\DIFaddend}{} %DIF PREAMBLE
-\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
-\providecommand{\DIFdelend}{} %DIF PREAMBLE
-%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
-\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
-\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
-\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
-\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
-\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
-\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
-```
-- Compile again, to create the colorful diff: ```./utils/tdr --temp_dir="./output" b HIN-XX-YYY-diffb174241c04ff018b67e600b4d3acde00816c3c0b.tex```
-  - The diff file will be created on output folder, but look carefully in the spit-out on the screed to see the location of the pdf file. 
+the .pdf with output will be in the ```Diff output``` column. You have to download the entire folder (it expires after a while).
