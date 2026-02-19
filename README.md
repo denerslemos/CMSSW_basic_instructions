@@ -1,4 +1,4 @@
-<img src="[https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png](https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Findico.bnl.gov%2Fcategory%2F480%2F&ved=0CBYQjRxqFwoTCMCZ-7Sz5pIDFQAAAAAdAAAAABAI&opi=89978449)"  width="20%" height="20%">
+<img src="https://github.com/denerslemos/CMSSW_basic_instructions/blob/main/CMSlogo_color_nolabel_1024_May2014.png"  width="20%" height="20%">
 
 # CMS Survival Guide 
 
